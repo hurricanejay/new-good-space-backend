@@ -6,9 +6,16 @@ class LikesController < ApplicationController
     
       def show
         like = Like.find(params[:id])
-        render json: like
+
+        render json: like, includes: :user
       end
-    
+
+
+    def index
+      likes = Like.all
+      render json: likes
+  end
+
       private 
     
       def like_params

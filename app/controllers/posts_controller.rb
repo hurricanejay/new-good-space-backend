@@ -1,13 +1,19 @@
 class PostsController < ApplicationController
     def index
         posts = Post.all
-        render jason: posts, except: [:created_at, :updated_at]
+        render json: posts, except: [:created_at, :updated_at]
       end
     
       def destroy
         post = Post.find(params[id])
         post.destroy
       end
+
+      def show
+        post = Post.find(params[:id])
+        render json: post, includes: [:user, :comments, :likes]
+      end
+
     
       def update
         @post = Post.find(params[:id])

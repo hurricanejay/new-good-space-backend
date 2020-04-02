@@ -1,26 +1,30 @@
 class UsersController < ApplicationController
     def index
-        username = Username.all
-        render json: username, except: [:created_at, :updated_at]
-      end
+        users = User.all
+        render json: users, except: [:created_at, :updated_at]
+    end
+
+    def show
+      user = User.find(params[:id])
+      render json: user
+    end
+
     
       def create
-        user = Username.new(username: params[:username], password: params[:password])
+        user = User.new(user_params)
     
-        if username.save
-          render json: username
+        if user.save
+          render json: user
       else 
           render json: {errors: user.errors.full_messages}
       end 
-    
-      def show
-        username = Username.find(params[:id])
-        render json: username
-      end
+    end
     
       private
         
       def user_params 
-          params.require(:username).permit(:name, :password)
+          params.require(:user).permit(:username, :password)
       end 
-end
+
+    end
+
