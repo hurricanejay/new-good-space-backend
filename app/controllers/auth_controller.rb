@@ -5,7 +5,7 @@ class AuthController < ApplicationController
         if user && user.authenticate(params[:password])
             render json: user
         else 
-            render json: {errors: 'wrong name or password'}
+            render json: {errors: 'Sorry, invalid name or password'}
         end 
     end 
 
