@@ -5,7 +5,7 @@ class PostsController < ApplicationController
       end
     
       def destroy
-        post = Post.find(params[id])
+        post = Post.find(params[:id])
         post.destroy
       end
 
@@ -16,9 +16,9 @@ class PostsController < ApplicationController
 
     
       def update
-        @post = Post.find(params[:id])
-        @post.update(post)
-        render json: @post
+        post = Post.find(params[:id])
+        post.update(post_params)
+        render json: post
       end
     
       def create
@@ -27,12 +27,12 @@ class PostsController < ApplicationController
       end
     
       def edit
-        @post = Post.find(params[:id])
-        render json: @post
+        post = Post.find(params[:id])
+        render json: post
       end
     
       private
       def post_params
-        params.require(:post).permit(:user_id, :location, :category, :tags, :title, :date, :description)
+        params.require(:post).permit(:user_id, :location, :category, :tag, :title, :date, :description)
       end 
 end
