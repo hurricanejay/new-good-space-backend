@@ -8,10 +8,15 @@ This is the backend of the app. To access to frontend, please see this link: htt
 
 Video Demo: https://www.youtube.com/embed/W91r_k2rT0E
 
-Tech Stack: Ruby Rails backend ReactJS frontend Postgres database Styling - Flexbox and React Bootstrap Google React Maps API
+Tech Stack: <br/>
+Ruby Rails backend <br/>
+ReactJS frontend <br/>
+Postgres database <br/>
+Styling - Flexbox and React Bootstrap <br/>
+Google React Maps API<br/>
 
 Installation:
 
-Clone repo and CD in the directory
-bundle install
+Clone repo and CD in the directory<br/>
+bundle install<br/>
 run rails s to start the server
